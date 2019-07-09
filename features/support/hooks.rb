@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
-before do
-  visit base_url
+Before do
+  visit FigNewton.base_url
+  page.should have_selector('#main')
 end

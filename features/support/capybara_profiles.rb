@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'selenium-webdriver'
+require 'selenium/webdriver'
+require 'webdrivers/chromedriver'
+
 Capybara.register_driver :chrome do |app|
   Capybara::Selenium::Driver.new(app, browser: :chrome)
 end
@@ -7,7 +11,8 @@ end
 Capybara.register_driver :headless_chrome do |app|
   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
     chromeOptions: {
-      args: %w[headless enable-features=NetworkService,NetworkServiceInProcess]
+      args: %w[headless enable-features=NetworkService,NetworkServiceInProcess
+               --no-sandbox,--disable-dev-shm-usage]
     }
   )
 
