@@ -36,7 +36,8 @@ end
 
 def delete_computer
   id = computer_id
-  uri = URI.parse("http://computer-database.herokuapp.com/computers/#{id}/delete")
+  ep = "http://computer-database.herokuapp.com/computers/#{id}/delete"
+  uri = URI.parse(ep)
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri)
   http.request(request)
@@ -47,6 +48,5 @@ def cleanup
     delete_computer
     visit FigNewton.base_url
     break if Capybara::ElementNotFound
-  rescue Capybara::ElementNotFound
   end
 end

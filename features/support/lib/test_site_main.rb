@@ -21,5 +21,4 @@ class Main < SitePrism::Page
       number.to_i
     end
   end
-
 end

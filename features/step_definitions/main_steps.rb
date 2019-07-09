@@ -26,7 +26,7 @@ end
 
 When('success message is displayed for {string} computer') do |name|
   comp = load_computer[name]['name']
-  msg =  "Done! Computer #{comp} has been created" 
+  msg =  "Done! Computer #{comp} has been created"
   expect(portal.main.alert.text).to eq(msg)
 end
 
