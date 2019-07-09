@@ -6,6 +6,9 @@ Given('the user adds a computer called {string} via UI') do |name|
   portal.main.add_computer.click
   comp = load_computer
   portal.detail.name.send_keys(comp[name]['name'])
+  portal.detail.intro_date.send_keys(comp[name]['introduced'])
+  portal.detail.discontinued.send_keys(comp[name]['discontinued'])
+  portal.detail.select_company(comp[name]['company'])
   portal.detail.create.click
   expect(portal.main.comp_count).to eq(@comp_count + 1)
 end
@@ -32,6 +35,7 @@ end
 
 And('the computer {string} is correctly visible in the table') do |name|
   table_array = portal.main.computer_list.text.split("\n")
+  binding.pry
   comp = load_comp_table[name]
   expect(table_array).to include(comp)
 end

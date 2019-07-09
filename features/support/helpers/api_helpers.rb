@@ -44,9 +44,8 @@ def delete_computer
 end
 
 def cleanup
-  loop do
-    delete_computer
-    visit FigNewton.base_url
-    break if Capybara::ElementNotFound
-  end
+  delete_computer
+rescue Capybara::ElementNotFound
+  puts 'No computers to delete'
+  visit FigNewton.base_url
 end

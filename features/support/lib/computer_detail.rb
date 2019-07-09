@@ -9,4 +9,12 @@ class Detail < SitePrism::Page
   element :create, 'input.btn.primary'
   element :cancel, 'a.btn'
   element :delete, 'input.btn.danger'
+
+  def select_company(comp)
+    company.click
+    within company do
+      @select = find('option', text: comp)
+    end
+    @select.click
+  end
 end
