@@ -2,7 +2,8 @@
 
 # Main test page for backbase
 class Main < SitePrism::Page
-  element :home, 'a', text: 'Play sample application — Computer database '
+  element :main, '#main'
+  element :home, 'a', text: 'Play sample application — Computer database'
   element :search_input, '#searchbox'
   element :filter_by_name, '#searchsubmit'
   element :add_computer, '#add'
@@ -10,4 +11,15 @@ class Main < SitePrism::Page
   element :previous, 'li.prev'
   element :current, 'li.current'
   element :next, 'li.next'
+  element :alert, 'div.alert-message.warning'
+
+  def comp_count
+    within main do
+      comps = find('h1')
+      text = comps.text
+      number = text.scan(/\d+/).first
+      number.to_i
+    end
+  end
+
 end

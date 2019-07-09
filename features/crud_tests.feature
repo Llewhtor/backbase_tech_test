@@ -4,9 +4,9 @@ Feature: Test cases that cover the CRUD operations for BackBase test site.
 @edd
   Scenario: A new computer can be added to the database
     Given the user adds a computer called 'standard' via UI
-    When the user navigates to the main page
+    When success message is displayed for 'standard' computer
     Then the computers found is updated by 1
-    And the computer '<name>' is correctly visible in the table
+    And the computer 'standard' is correctly visible in the table
 
   Scenario: A computer can be removed from the database
     Given the user adds a computer called '<name>'

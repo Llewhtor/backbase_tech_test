@@ -27,15 +27,26 @@ def create_computer(name)
   http.request(request)
 end
 
-def computer_id(name)
-  link = page.find('a', text: name, match: :first)['href']
-  link.split('/').last
+def computer_id
+  comp = load_computer
+  name = (comp[@comp_name]['name'])
+  @link = page.find('a', text: name, match: :first)['href']
+  @link.split('/').last
 end
 
-def delete_computer(name)
-  id = computer_id(name)
+def delete_computer
+  id = computer_id
   uri = URI.parse("http://computer-database.herokuapp.com/computers/#{id}/delete")
   http = Net::HTTP.new(uri.host, uri.port)
-  request = Net::HTTP::Post.new(uri.request_uri, header)
+  request = Net::HTTP::Post.new(uri.request_uri)
   http.request(request)
+end
+
+def cleanup
+  loop do
+    delete_computer
+    visit FigNewton.base_url
+    break if Capybara::ElementNotFound
+  rescue Capybara::ElementNotFound
+  end
 end
