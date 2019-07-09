@@ -21,4 +21,11 @@ class Main < SitePrism::Page
       number.to_i
     end
   end
+
+  def click_comp(name)
+    within computer_list do
+      @selection = find('a', text: name, match: :first)
+    end
+    @selection.click
+  end
 end

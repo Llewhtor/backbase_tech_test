@@ -1,5 +1,12 @@
 standard: 
-  name: 'AAATest'
+  name: 'AAATest_standard'
   introduced: ''
   discontinued: ''
   company: '-- Choose a company --'
+
+apple_1: 
+  name: 'AAATest_Apple_1'
+  introduced: '2009-01-01'
+  discontinued: '2019-01-01'
+  company: '1'
+

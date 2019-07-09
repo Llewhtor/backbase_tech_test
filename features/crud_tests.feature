@@ -1,17 +1,17 @@
 Feature: Test cases that cover the CRUD operations for BackBase test site.
 
   Test cases that cover the CRUD operations plus any identified edge cases.
-@edd
+
   Scenario: A new computer can be added to the database
     Given the user adds a computer called 'standard' via UI
     When success message is displayed for 'standard' computer
     Then the computers found is updated by 1
     And the computer 'standard' is correctly visible in the table
-
+@edd
   Scenario: A computer can be removed from the database
-    Given the user adds a computer called '<name>'
-    When the user deletes the computer '<name>'
-    Then the computer '<name>' is no longer visible in the table
+    Given a computer called 'apple_1' is added via API
+    When the user deletes the computer 'apple_1'
+    Then the computer 'apple_1' is no longer visible in the table
 
   Scenario: Computer information can be viewed
     Given the user adds a computer called '<name>'

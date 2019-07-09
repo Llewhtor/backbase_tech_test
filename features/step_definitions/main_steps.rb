@@ -13,10 +13,13 @@ Given('the user adds a computer called {string} via UI') do |name|
   expect(portal.main.comp_count).to eq(@comp_count + 1)
 end
 
-Given('the user adds a computer called {string} via API') do |name|
+Given('a computer called {string} is added via API') do |name|
   @comp_name = name
+  comp = load_computer
+  entry = comp[name]['name']
   create_computer(name)
   visit FigNewton.base_url
+  step "the computer \"#{name}\" is correctly visible in the table"
 end
 
 When('the user navigates to the main page') do
@@ -35,15 +38,16 @@ end
 
 And('the computer {string} is correctly visible in the table') do |name|
   table_array = portal.main.computer_list.text.split("\n")
-  binding.pry
   comp = load_comp_table[name]
   expect(table_array).to include(comp)
 end
 
-When('the user deletes the computer {string}') do |name|
-end
-
 Then('the computer {string} is no longer visible in the table') do |name|
+  msg = 'Done! Computer has been deleted'
+  expect(portal.main.alert.text).to eq(msg)
+  table_array = portal.main.computer_list.text.split("\n")
+  comp = load_comp_table[name]
+  expect(table_array).not_to include(comp)
 end
 
 When('the user views details for computer {string}') do |name|
