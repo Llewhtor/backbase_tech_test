@@ -3,23 +3,17 @@
 Given('the user adds a new computer called {string} via UI') do |name|
   @comp_name = name
   @comp_count = portal.main.comp_count
+  expect(portal.main.sub_heading).to include('computers found')
   portal.main.add_computer.click
+  page_title = 'Play sample application — Computer database'
+  expect(portal.main.title.text).to eq(page_title)
+  expect(portal.main.sub_heading).to eq('Add a computer')
   portal.detail.enter_comp_info(name)
   portal.detail.create.click
   unless portal.detail.has_bad_input?
+    page.should have_selector('#main')
     expect(portal.main.comp_count).to eq(@comp_count + 1)
   end
-end
-
-Given('a computer called {string} is added via API') do |name|
-  @comp_name = name
-  @comp_count = portal.main.comp_count
-  create_computer(name)
-  visit FigNewton.base_url
-end
-
-When('the user navigates to the main page') do
-  visit FigNewton.base_url
 end
 
 Then('the computers found is updated by 1') do
@@ -32,7 +26,14 @@ When('success message is displayed for {string} computer') do |name|
   expect(portal.main.alert.text).to eq(msg)
 end
 
-And('the computer {string} is correctly visible in the table') do |name|
+And('computer {string} is visible in the table when searching') do |name|
+  portal.main.search_computers(name)
+  table_array = portal.main.computer_list.text.split("\n")
+  comp = load_comp_table[name]
+  expect(table_array).to include(comp)
+end
+
+Then('computer {string} is visible in the table when not searching') do |name|
   table_array = portal.main.computer_list.text.split("\n")
   comp = load_comp_table[name]
   expect(table_array).to include(comp)
@@ -51,6 +52,7 @@ When('the user views details for computer {string}') do |name|
   comp = load_computer[name]['name']
   portal.main.click_comp(comp)
   page.should have_selector('#main')
+  expect(portal.main.sub_heading).to eq('Edit computer')
 end
 
 Then('computer {string} is listed {int} times in the table') do |_name, _count|

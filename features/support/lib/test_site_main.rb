@@ -3,6 +3,7 @@
 # Main test page for backbase
 class Main < SitePrism::Page
   element :main, '#main'
+  element :title, 'header.topbar'
   element :home, 'a', text: 'Play sample application — Computer database'
   element :search_input, '#searchbox'
   element :filter_by_name, '#searchsubmit'
@@ -18,13 +19,15 @@ class Main < SitePrism::Page
   element :company, 'th.col5'
   element :not_found, 'div.well'
 
-  def comp_count
+  def sub_heading
     within main do
-      comps = find('h1')
-      text = comps.text
-      number = text.scan(/\d+/).first
-      number.to_i
+      find('h1').text
     end
+  end
+
+  def comp_count
+    number = sub_heading.scan(/\d+/).first
+    number.to_i
   end
 
   def click_comp(name)

@@ -24,7 +24,7 @@ def create_computer(name)
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri, header)
   request.body = @body.to_json
-  http.request(request)
+  @request = http.request(request)
 end
 
 def computer_id
@@ -42,6 +42,15 @@ def delete_computer
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri)
   http.request(request)
+end
+
+def post_invalid_delete_request
+  ep = 'http://computer-database.herokuapp.com/computers/not_valid/delete'
+  uri = URI.parse(ep)
+  http = Net::HTTP.new(uri.host, uri.port)
+  request = Net::HTTP::Post.new(uri.request_uri)
+  http.request(request)
+  @request = http.request(request)
 end
 
 def cleanup

@@ -13,8 +13,6 @@ require 'site_prism'
 require 'watir'
 require 'webdrivers'
 
-# require_all '/config'
-
 def portal
   Portal.new
 end

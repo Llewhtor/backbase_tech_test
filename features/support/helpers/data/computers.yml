@@ -31,8 +31,8 @@ long_name:
   company: 'RCA'
   comp_value: '3'
 
-sql_query_name_1: 
-  name: 'AAA SELECT * FROM Users WHERE UserId = 105 OR 1=1;'
+sql_query_name: 
+  name: 'SELECT * FROM Users WHERE UserId = 105 OR 1=1;'
   introduced: ''
   discontinued: ''
   company: 'Netronics'
@@ -59,13 +59,6 @@ numbers_name:
   company: 'MOS Technology'
   comp_value: '7'
 
-sql_query_name_2: 
-  name: 'SELECT * FROM Users WHERE UserId = 105 OR 1=1;'
-  introduced: ''
-  discontinued: ''
-  company: 'Micro Instrumentation and Telemetry Systems'
-  comp_value: '8'
-
 not_first_page: 
   name: 'ZZZTest001'
   introduced: ''
@@ -87,9 +80,333 @@ bad_discontinued_date:
   company: '-- Choose a company --'
   comp_value: ''
 
-new: 
+backwards_dates: 
+  name: 'AAA_bad_continued_date'
+  introduced: '2019-01-01'
+  discontinued: '2000-01-01'
+  company: '-- Choose a company --'
+  comp_value: ''
+
+api_invalid_name: 
   name: ''
+  introduced: '2009-01-01'
+  discontinued: '2019-01-01'
+  company: 'Digital Equipment Corporation'
+  comp_value: '10'
+
+api_invalid_intro_date: 
+  name: 'AAATest001'
+  introduced: '2009-99-99'
+  discontinued: ''
+  company: 'Lincoln Laboratory'
+  comp_value: '11'
+
+api_invalid_discontinued_date: 
+  name: 'AAATest001'
+  introduced: ''
+  discontinued: '2009-99-99'
+  company: 'Moore School of Electrical Engineering'
+  comp_value: '12'
+
+api_invalid_company: 
+  name: 'AAATest001'
+  introduced: '2009-01-01'
+  discontinued: '2019-01-01'
+  company: ''
+  comp_value: 'Not Valid'
+
+# All Companies
+
+apple_inc_test: 
+  name: 'Apple_Inc._Test'
   introduced: ''
   discontinued: ''
-  company: ''
-  comp_value: ''
+  company: 'Apple Inc.'
+  comp_value: '1'
+
+thinking_machines_test: 
+  name: 'Thinking_Machines_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Thinking Machines'
+  comp_value: '2'
+
+rca: 
+  name: 'RCA_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'RCA'
+  comp_value: '3'
+
+netronics_test: 
+  name: 'Netronic_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Netronics'
+  comp_value: '4'
+
+tandy_corporation_test: 
+  name: 'Tandy_Corporation_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Tandy Corporation'
+  comp_value: '5'
+
+commodore_international_test: 
+  name: 'Commodore_International_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Commodore International'
+  comp_value: '6'
+
+mos_technology_test: 
+  name: 'MOS_Technology_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'MOS Technology'
+  comp_value: '7'
+
+micro_instrumentation_and_telemetry_systems_test: 
+  name: 'Micro_Instrumentation_and_Telemetry_Systems_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Micro Instrumentation and Telemetry Systems'
+  comp_value: '8'
+
+ims_associates_inc_test: 
+  name: 'IMS_Associates,_Inc._Test'
+  introduced: ''
+  discontinued: ''
+  company: 'IMS Associates, Inc.'
+  comp_value: '9'
+
+digital_equipment_corporation_test: 
+  name: 'Digital_Equipment_Corporation_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Digital Equipment Corporation'
+  comp_value: '10'
+
+lincoln_laboratory_test: 
+  name: 'Lincoln_Laboratory_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Lincoln Laboratory'
+  comp_value: '11'
+
+moore_school_of_electrical_engineering_test: 
+  name: 'Moore_School_of_Electrical_Engineering_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Moore School of Electrical Engineering'
+  comp_value: '12'
+
+ibm_test: 
+  name: 'IBM_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'IBM'
+  comp_value: '13'
+
+amiga_corporation_test: 
+  name: 'Amiga_Corporation_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Amiga Corporation'
+  comp_value: '14'
+
+canon_test: 
+  name: 'Canon_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Canon'
+  comp_value: '15'
+
+nokia_test: 
+  name: 'Nokia_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Nokia'
+  comp_value: '16'
+  
+sony_test: 
+  name: 'Sony_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Sony'
+  comp_value: '17'
+
+oqo_test:
+  name: 'OQO_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'OQO'
+  comp_value: '18'
+  
+next_test:
+  name: 'NeXT_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'NeXT'
+  comp_value: '19'
+  
+atari_test:
+  name: 'Atari_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Atari'
+  comp_value: '20'
+  
+acorn_computer_test:
+  name: 'Acorn_computer_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Acorn computer'
+  comp_value: '22'
+  
+timex_sinclair_test:
+  name: 'Timex_Sinclair_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Timex Sinclair'
+  comp_value: '23'
+  
+nintendo_test:
+  name: 'Nintendo_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Nintendo'
+  comp_value: '24'
+  
+sinclair_research_ltd_test:
+  name: 'SinclairResearch_Ltd_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Sinclair Research Ltd'
+  comp_value: '25'
+  
+xerox_test:
+  name: 'Xerox_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Xerox'
+  comp_value: '26'
+  
+hewlett-packard_test:
+  name: 'Hewlett-Packard_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Hewlett-Packard'
+  comp_value: '27'
+
+zemmix_test:
+  name: 'Zemmix_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Zemmix'
+  comp_value: '28'
+
+acvs_test:
+  name: 'ACVS_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'ACVS'
+  comp_value: '29'
+
+sanyo_test:
+  name: 'Sanyo_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Sanyo'
+  comp_value: '30'
+  
+cray_test:
+  name: 'Cray_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Cray'
+  comp_value: '31'
+  
+evans_&_sutherland_test:
+  name: 'Evans_&_Sutherland_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Evans & Sutherland'
+  comp_value: '32'
+  
+esr_inc_test:
+  name: 'E.S.R._Inc._Test'
+  introduced: ''
+  discontinued: ''
+  company: 'E.S.R. Inc.'
+  comp_value: '33'
+
+omron_test:
+  name: 'OMRON_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'OMRON'
+  comp_value: '34'
+
+bbn_technologies_test:
+  name: 'BBN_Technologies_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'BBN Technologies'
+  comp_value: '35'
+
+lenovo_group_test:
+  name: 'Lenovo_Group_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Lenovo Group'
+  comp_value: '36'
+
+asus_test:
+  name: 'ASUS_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'ASUS'
+  comp_value: '37'
+
+amstrad_test:
+  name: 'Amstrad_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Amstrad'
+  comp_value: '38'
+
+sun_microsystems_test:
+  name: 'Sun_Microsystems_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Sun Microsystems'
+  comp_value: '39'
+
+texas_instruments_test:
+  name: 'Texas_Instruments_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Texas Instruments'
+  comp_value: '40'
+
+htc_corporation_test:
+  name: 'HTC_Corporation_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'HTC Corporation'
+  comp_value: '41'
+
+research_in_motion_test: 
+  name: 'Research_In_Motion_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Research In Motion'
+  comp_value: '42'
+
+samsung_electronics_test: 
+  name: 'Samsung_Electronics_Test'
+  introduced: ''
+  discontinued: ''
+  company: 'Samsung Electronics'
+  comp_value: '43'
