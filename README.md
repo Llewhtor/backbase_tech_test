@@ -34,7 +34,7 @@ cucumber features/feature_files/sort_computers.feature:17 # Scenario Outline: So
 ##### Test failures that may occur if test page is in use by others
 ```cucumber features/feature_files/add_computer.feature: # Scenario Outline: Computers can be created with all companies```
 
-##### Disables Tests due to bug that would allow computer to remain in table
+##### Disabled Tests due to bug that would allow computer to remain in table
 Searching with certain symbolic input doesn't work.
 
 ```cucumber features/feature_files/search_computer.feature:15 # Scenario Outline: Searching computer entries returns correct results, Examples (#3)```
