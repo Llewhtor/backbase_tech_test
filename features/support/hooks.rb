@@ -6,5 +6,5 @@ Before do
 end
 
 After do
-  cleanup
+  cleanup unless @comp_name == 'no_name'
 end

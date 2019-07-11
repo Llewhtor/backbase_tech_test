@@ -7,11 +7,11 @@ require 'json'
 def computer_details(name)
   comp = load_computer
 
-  @test = {
+  @body = {
     name: comp[name]['name'],
     introduced: comp[name]['introduced'],
     discontinued: comp[name]['discontinued'],
-    company: comp[name]['company']
+    company: comp[name]['comp_value']
   }
 end
 
@@ -23,15 +23,16 @@ def create_computer(name)
 
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri, header)
-  request.body = @test.to_json
+  request.body = @body.to_json
   http.request(request)
 end
 
 def computer_id
   comp = load_computer
   name = (comp[@comp_name]['name'])
-  @link = page.find('a', text: name, match: :first)['href']
-  @link.split('/').last
+  check = portal.main.has_not_found? == true
+  link = page.find('a', text: name, match: :first)['href'] unless check
+  link.split('/').last unless check
 end
 
 def delete_computer
@@ -44,8 +45,10 @@ def delete_computer
 end
 
 def cleanup
-  delete_computer
-rescue Capybara::ElementNotFound
-  puts 'No computers to delete'
   visit FigNewton.base_url
+  while portal.main.has_not_found? != true
+    portal.main.search_computers(@comp_name)
+    delete_computer
+    portal.main.search_computers(@comp_name)
+  end
 end
